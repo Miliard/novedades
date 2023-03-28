@@ -19,3 +19,4 @@ Route::get('/', function () {
 });
 
 Route::get('tarea/registar', [TareaController::class, 'create'])->name('tarea.create');
+Route::post('tarea/guardar', [TareaController::class, 'store'])->name('tarea.store');

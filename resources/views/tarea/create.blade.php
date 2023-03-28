@@ -7,15 +7,16 @@
     <h3>
         Registrar tarea
     </h3>
-    <form action="javascript:(0);">
+    <form action=" {{ route('tarea.store')}}" method="POST">
+        @csrf
         <div class="row">
             <div class="col-sm-12">
                 <label for="ImputNombre" class="form">Nombre de la tarea</label>
-                <input type="text" name="nombre" id="InputNombre" class="form-control" placeholder="..." >
+                <input type="text" name="nombre" id="InputNombre" class="form-control" placeholder="..." value="{{ old('nombre')}}" >
             </div>
             <div class="col-sm-4">
                 <div class="form-check">
-                    <input type="checkbox" name="finalizada" id="InputFinalizada" class="form-check-input">
+                    <input type="checkbox" name="finalizada" id="InputFinalizada" class="form-check-input" @checked(old('finalizada'))>
                     <label for="InputFinalizada" class="form-chek-label">Finalizada</label>
                 </div>
             </div>
@@ -43,5 +44,13 @@
             </div>
         </div>
     </form>
-    
+@if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
 @endsection
