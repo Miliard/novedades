@@ -16,7 +16,7 @@ class Tarea extends Model
     protected $fillable = [
 
         'nombre',
-        'descrpcion',
+        'descripcion',
         'finalizada',
         'fecha_limite',
         'urgencia'

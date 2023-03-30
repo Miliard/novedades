@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Http\Middleware\RedirectIfAuthenticated;
 use App\Models\Tarea;
 use Illuminate\Http\Request;
 
@@ -16,7 +16,8 @@ class TareaController extends Controller
      */
     public function index()
     {
-        //
+        $tareas = Tarea::orderByDesc('id')->get();
+        return view('tarea.index', compact('tareas'));
     }
 
     /**
@@ -48,7 +49,8 @@ class TareaController extends Controller
 
             ]);
 
-            dd($datos);
+            $tarea = Tarea::create($datos);
+            return redirect()->route('tarea.index');
     }
 
     /**
