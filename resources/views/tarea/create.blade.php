@@ -11,7 +11,7 @@
         @csrf
         <div class="row">
             <div class="col-sm-12">
-                <label for="ImputNombre" class="form">Nombre de la tarea</label>
+                <label for="ImputNombre" class="form">Nombre del cliente</label>
                 <input type="text" name="nombre" id="InputNombre" class="form-control" placeholder="..." value="{{ old('nombre')}}" >
             </div>
             <div class="col-sm-4">

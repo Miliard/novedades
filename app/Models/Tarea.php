@@ -19,13 +19,17 @@ class Tarea extends Model
         'descripcion',
         'finalizada',
         'fecha_limite',
-        'urgencia'
+        'urgencia',
+        'fecha_ingreso' // Agrega el campo fecha_ingreso al modelo
+
 
     ];
 
     // protected $datos = ['fecha_limite'];
     protected $casts = [
     'fecha_limite' => 'datetime',
+    'fecha_ingreso' => 'datetime' // Indica que el campo es de tipo fecha/hora
+
 ];
 
     public const URGENCIAS = ['Baja', 'Normal', 'Alta'];

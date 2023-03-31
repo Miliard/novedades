@@ -8,6 +8,7 @@
     <h3>
         Listados de tareas
     </h3>
+    <div class="table-responsive">
     <table class="table table-stripped table-hover">
       <thead>
         <tr>
@@ -27,6 +28,9 @@
             Descripcion
           </th>
           <th>
+           Fecha de ingreso
+          </th>
+          <th>
             opciones
           </th>
         </tr>
@@ -41,7 +45,7 @@
                 {{ $tarea->estaFinalizada()}}
               </td>
               <td>
-                {{ $tarea->fecha_limite->format('H:i d / m / y')}}
+                {{ $tarea->fecha_limite->format('H:i d/m/y')}}
               </td>
               <td>
                 {{ $tarea->urgencia()}}
@@ -51,10 +55,14 @@
                 {{ $tarea->descripcion}}
               </td>
               <td>
+                {{ $tarea->created_at->format('H:i d/m/y') }}
+              </td>
+              <td>
 
               </td>
             </tr>
         @endforeach
       </tbody>
     </table>
+    </div>
 @endsection

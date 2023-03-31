@@ -20,6 +20,7 @@ return new class extends Migration
             $table->tinyInteger('finalizada')->default(0);
             $table->timestamp('fecha_limite');
             $table->tinyInteger('urgencia')->comment('0: No es urgente, 1: Urgencia normal, 2:Muy urgente');
+             $table->timestamp('fecha_ingreso')->useCurrent();
             $table->softDeletes();
             $table->timestamps();
         });
