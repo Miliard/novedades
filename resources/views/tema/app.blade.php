@@ -20,7 +20,7 @@
             </div>
             <div class="col-ms-12">
                 <a href="{{ route('tarea.create') }}" class="btn btn-link">Crear nuevo ingreso</a>
-                <a href="" class="btn btn-link">Listar tarea</a>
+                <a href="{{ route('tarea.index') }}" class="btn btn-link">Listar tarea</a>
             </div>
             <div class="col-sm-12">
                 @yield('contenido')

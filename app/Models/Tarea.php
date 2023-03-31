@@ -23,6 +23,22 @@ class Tarea extends Model
 
     ];
 
-    protected $datos = ['fecha_limite'];
+    // protected $datos = ['fecha_limite'];
+    protected $casts = [
+    'fecha_limite' => 'datetime',
+];
+
+    public const URGENCIAS = ['Baja', 'Normal', 'Alta'];
+
+    public function urgencia() 
+    {
+        return self::URGENCIAS[$this->urgencia];
+    }
+
+    public function estaFinalizada()
+    {
+        return $this->finalizada == 1 ? 'Si' : 'No';
+    }
     
+
 }
