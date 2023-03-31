@@ -58,7 +58,7 @@
                 {{ $tarea->created_at->format('H:i d/m/y') }}
               </td>
               <td>
-
+                  <a href="{{ route('tarea.edit', $tarea)}}">Editar</a>
               </td>
             </tr>
         @endforeach

@@ -1,11 +1,12 @@
+
 @extends('tema.app')
 
-@section('title', "Nueva tarea")
+@section('title', "Editar tarea")
     
 @section('contenido')
 
     <h3>
-        Registrar tarea
+        Editar tarea <i>{{ $tarea->nombre }}</i>
     </h3>
     <form action=" {{ route('tarea.store')}}" method="POST">
         @csrf
