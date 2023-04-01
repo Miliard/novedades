@@ -84,7 +84,7 @@ class TareaController extends Controller
      */
     public function update(Request $request, Tarea $tarea)
     {
-        //
+      ol/
     }
 
     /**
