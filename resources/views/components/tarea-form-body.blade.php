@@ -6,7 +6,7 @@
     </div>
     <div class="col-sm-4">
         <div class="form-check">
-            <input type="checkbox" name="finalizada" id="InputFinalizada" class="form-check-input" @checked(old('finalizada',$tarea->finalizada))>
+            <input type="checkbox" name="finalizada" id="InputFinalizada" class="form-check-input" value="1 " @checked(old('finalizada',$tarea->finalizada))>
             <label for="InputFinalizada" class="form-chek-label">Finalizada</label>
         </div>
     </div>
