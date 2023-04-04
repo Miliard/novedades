@@ -1,4 +1,3 @@
-
 @extends('tema.app')
 
 @section('title', "Editar tarea")

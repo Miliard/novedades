@@ -17,8 +17,7 @@ class TareaController extends Controller
      */
     public function index()
     {
-        $tareas = Tarea::orderByDesc('id')->get();
-        return view('tarea.index', compact('tareas'));
+        return view('tarea.index', );
     }
 
     /**
@@ -53,7 +52,7 @@ class TareaController extends Controller
      */
     public function show(Tarea $tarea)
     {
-        //
+        return view('tarea.show', ['tarea' => $tarea]);
     }
 
     /**
@@ -90,6 +89,7 @@ class TareaController extends Controller
      */
     public function destroy(Tarea $tarea)
     {
-        //
+        $tarea->delete();
+        return redirect()->route('tarea.index');
     }
-}
+}  // closing brace for TareaController class
