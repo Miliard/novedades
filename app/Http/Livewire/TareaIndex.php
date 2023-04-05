@@ -10,14 +10,30 @@ class TareaIndex extends Component
 {
     use WithPagination;
     
-    public $busquedad = '';
-    public $pag
+    public $busqueda = '';
+    public $paginacion = 10;
+    protected $paginationTheme = 'bootstrap';
+    protected $queryString = 
+    [
+        'busqueda' => ['except' => ''],
+        'paginacion' => ['except' => 10],
+    ];
+
 
     public function render()
     {
         $tareas = $this->consulta();
+        $tareas = $tareas->paginate($this->paginacion);
+        if ($tareas->currentPage() > $tareas->lastPage())
+        {
+        
+        $this->resetPage();
+        $tareas = $this->consulta();
+        $tareas = $tareas->paginate($this->paginacion);
+
+        }
         $params = [
-            'tareas' => $tareas->get(),
+            'tareas' => $tareas,
         ];
         return view('livewire.tarea-index', $params);
     }
@@ -25,9 +41,9 @@ class TareaIndex extends Component
     private function consulta ()
     {
         $query = Tarea::orderByDesc('id');
-        if ($this->busquedad != '')
+        if ($this->busqueda != '')
         {
-            $query->where('nombre', 'LIKE', '%' .$this->busquedad. '%');
+            $query->where('nombre', 'LIKE', '%' .$this->busqueda. '%');
 
         }
         return $query;

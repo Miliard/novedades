@@ -1,7 +1,15 @@
 <div>
     <div class="row">
         <div class="col-sm-9">
-            <input type="text" placeholder="BUSCAR...." class="form-control" wire:model="busquedad">
+            <input type="text" placeholder="BUSCAR...." class="form-control" wire:model="busqueda">
+        </div>
+        <div class="col-sm-3">
+              <select name="" id="" class="form-select" wire:model="paginacion">
+                <option value="10">10</option>
+                <option value="20">20</option>
+                <option value="50">50</option>
+                <option value="100">100</option>
+              </select>
         </div>
     </div>
  <div class="table-responsive">
@@ -61,6 +69,8 @@
             </tr>
         @endforeach
       </tbody>
+      
     </table>
+    {{$tareas-> links()}}
     </div>
 </div>
